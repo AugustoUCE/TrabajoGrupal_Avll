@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/vehiculos/buscarMarcaModelo}" th:object="${vehiculo}" th:method="GET">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" th:field="${vehiculo.marca}">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" th:field="${vehiculo.modelo}">
+        <button type="submit">Buscar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+               
+                <th>Modelo</th>
+                <th>Marca</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each= "vehiculo:${vehiculos}">
+                <td th:text="${vehiculo.marca}"></td> </td>
+                <td th:text="${vehiculo.modelo}"></td> </td>
+            </tr>
+        </tbody>
+
+    </table>
+    
+</body>
+</html>
